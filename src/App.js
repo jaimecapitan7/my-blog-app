@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import Body from './components/Body';
+import {Routes, Route} from 'react-router-dom';
+import MainLayout from './pages/layout/MainLayout';
+import './css/homepage.css';
+import Dota2 from './pages/Dota2';
+import Csgo from './pages/Csgo';
+import Freestyle2 from './pages/Freestyle2';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return(
+    <Routes>
+
+      <Route element={<MainLayout />}>
+        <Route path='/' element={<Body />} />
+        <Route path='/dota2' element={<Dota2 />} />
+        <Route path='/csgo' element={<Csgo />} />
+        <Route path='/freestyle2' element={<Freestyle2 />} />
+      </Route>
+
+    </Routes>
+  )
 }
 
 export default App;
